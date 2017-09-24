@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MailService } from './mail.service';
+import { Inject } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -9,11 +9,18 @@ import { MailService } from './mail.service';
     <div>
 			<app-simple-form></app-simple-form>
 			{{ mail.message }}
+      <hr />
+      {{ api }}
 		</div>`
 })
 export class AppComponent {
   title = 'app works!';
 
-  constructor (public mail: MailService) {
+  constructor (
+    @Inject('mail') public mail,
+    @Inject('api') public api
+  ) {
+
+
   }
 }
