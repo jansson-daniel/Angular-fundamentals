@@ -7,10 +7,9 @@ import { Inject } from '@angular/core';
   styleUrls: ['./app.component.css'],
   template: `    
     <div>
-			<app-simple-form></app-simple-form>
-			{{ mail.message }}
-      <hr />
-      {{ api }}
+			<ul>
+        <li *ngFor="let message of mail.messages">{{ message }}</li>
+      </ul>
 		</div>`
 })
 export class AppComponent {
@@ -18,7 +17,6 @@ export class AppComponent {
 
   constructor (
     @Inject('mail') public mail,
-    @Inject('api') public api
   ) {
 
 
